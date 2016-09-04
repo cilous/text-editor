@@ -12,9 +12,27 @@
       <button type="button" name="button" class="underline-btn"><u>Underline</u></button>
       <input type="text" name="name" placeholder="Seach" class = "search">
       <button type="button" name="button" class="search-btn">Search</button>
+      <input type="text" name="name" placeholder="Seach" class = "replace">
+      <button type="button" name="button" class="replace-btn">Repalce</button>
     </div>
-      <textarea name="name" rows="8" cols="40" class="input" style="color:blue ;"></textarea>
+      <textarea name="name" rows="8" cols="97" id="input" ></textarea>
+      <div class="menu">
+        <input type="file" accept="text/plain" onchange="openfile(event)"><br>
 
+        <button type="button" name="button" class ="close-btn">Save</button>
+      </div>
+    <script>
+      function openfile(event){
+        document.getElementById("input").value = "";
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function(){
+          var text = reader.result;
+          document.getElementById("input").value = text;
+        };
+        reader.readAsText(input.files[0]);
+      }
+    </script>
     <script type="text/javascript" src= "js/jquery.min.js" ></script>
     <script type="text/javascript" src= "js/txt_edit_script.js"></script>
   </body>
